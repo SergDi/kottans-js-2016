@@ -22,7 +22,7 @@ let html = `
     `;
 
 const plugin = tree => tree
-    .match({ attrs: { class: true } }, node => {
+    .match({ attrs: { class: /js-/g } }, node => {
 
         let customAttrs = {};
 
@@ -31,27 +31,34 @@ const plugin = tree => tree
                 .split(' ')
                 .reduce((prev, current) => {
 
-                    if (current.substr(0, 3) === 'js-')
+                    if (current.startsWith('js-'))
                         customAttrs = {
-                            'data-js': customAttrs['data-js'] !== undefined
-                                ? customAttrs['data-js'] + ' ' + current.substr(3)
+                            'data-js': 'data-js' in customAttrs
+                                ? [customAttrs['data-js'] || '', current.substr(3)].join(' ').trim()
                                 : current.substr(3)
                         }
 
-
-                    if (!(classes.some(s => s === current) || current.substr(0, 3) === 'js-'))
-                        return prev === null
-                            ? current
-                            : prev + ' ' + current
-                    else
-                        return prev
+                    if (!current.startsWith('js-'))
+                        return [prev || '', current].join(' ').trim()
 
                 }, null)
 
-
-        if (customAttrs)
+        if (!!Object.keys(customAttrs).length)
             node.attrs = Object.assign(node.attrs, customAttrs)
 
+        return node;
+    })
+    .match({ attrs: { class: true } }, node => {
+
+        node.attrs.class =
+            node.attrs.class
+                .split(' ')
+                .reduce((prev, current) => {
+
+                    if (!classes.includes(current))
+                        return [prev || '', current].join(' ').trim()
+
+                }, null)
         return node;
     })
 
