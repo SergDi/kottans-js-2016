@@ -34,7 +34,7 @@ const plugin = tree => tree
                     if (current.startsWith('js-'))
                         customAttrs = {
                             'data-js': 'data-js' in customAttrs
-                                ? [customAttrs['data-js'] || '', current.substr(3)].join(' ').trim()
+                                ? [customAttrs['data-js'] || '', current.slice(0, 3)].join(' ').trim()
                                 : current.substr(3)
                         }
 
@@ -43,7 +43,7 @@ const plugin = tree => tree
 
                 }, null)
 
-        if (!!Object.keys(customAttrs).length)
+        if (Object.keys(customAttrs).length)
             node.attrs = Object.assign(node.attrs, customAttrs)
 
         return node;
