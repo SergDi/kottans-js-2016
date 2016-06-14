@@ -1,4 +1,4 @@
-const hasOwnProperty = Object.prototype.hasOwnProperty;
+//const hasOwnProperty = Object.prototype.hasOwnProperty;
 const propertyIsEnumerable = Object.prototype.propertyIsEnumerable;
 
 function deepAssign(target, ...sources) {
@@ -7,7 +7,8 @@ function deepAssign(target, ...sources) {
   sources.forEach(source => {
     Reflect.ownKeys(source)
       .filter(key => { return propertyIsEnumerable.call(source, key) })
-      .filter(key => { return !hasOwnProperty.call(target, key) })
+      .filter(key => { return !Reflect.has(target, key) })
+      //.filter(key => { return !hasOwnProperty.call(target, key) })
       .forEach(key => {
         if (typeof source[key] === 'object' && source[key] !== null) {
           target[key] = new source[key].constructor();
