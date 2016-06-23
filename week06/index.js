@@ -1,6 +1,20 @@
 module.exports = function add(str) {
   var result = 0;
 
+  if (str == '') return 0;
+
+  if (str.slice(0, 2) == '//') {
+    var arr = str.split('\n');
+    var delimiters = arr[0].match(/[^\/\/\[|\]|\/]+/g);
+    result = sum(spliter(arr[1], delimiters));
+  }
+  else
+    result = sum(str.replace('\n', ',').split(','));
+
+  if (result >= 1000) return 0;
+
+  return result;
+
   function sum(arr) {
     return arr.reduce(function (sum, current) {
       var val = parseInt(current, 10);
@@ -19,18 +33,4 @@ module.exports = function add(str) {
 
     return input.split(',')
   }
-
-  if (str == '') return 0;
-
-  if (str.slice(0, 2) == '//') {
-    var arr = str.split('\n');
-    var delimiters = arr[0].match(/[^\/\/\[|\]|\/]+/g);
-    result = sum(spliter(arr[1], delimiters));
-  }
-  else
-    result = sum(str.replace('\n', ',').split(','));
-
-  if (result >= 1000) return 0;
-
-  return result;
 }
