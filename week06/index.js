@@ -22,7 +22,7 @@ module.exports = function add(str) {
 
   if (str == '') return 0;
 
-  if (str.substring(0, 2) == '//') {
+  if (str.slice(0, 2) == '//') {
     var arr = str.split('\n');
     var delimiters = arr[0].match(/[^\/\/\[|\]|\/]+/g);
     result = sum(spliter(arr[1], delimiters));
