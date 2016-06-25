@@ -1,5 +1,5 @@
 {
-  "name": "awesome-package",
+  "name": "kata-1",
   "scripts": {
     "test": "ava"
   },
