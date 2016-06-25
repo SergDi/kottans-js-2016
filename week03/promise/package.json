@@ -1,0 +1,9 @@
+{
+  "name": "promise",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {
+    "mocha": "^2.5.3"
+  }
+}
