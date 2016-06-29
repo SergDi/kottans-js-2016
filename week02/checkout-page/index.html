@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans">
+</head>
+
+<body>
+  <header class="nav-header">
+    <a href="" class="go-back">go back</a>
+    <a href="" class="logo"><img src="/" alt="logo"></a>
+    <a href="" class="sing-in">sing in</a>
+  </header>
+  <main>
+    <form>
+      <section>
+        <h1>your order</h1>
+      </section>
+      <section>
+        <h1>help center</h1>
+        <address>
+            <a href="tel:+9710555555">+971(0) 555 555</a>
+            <a href="mailto:help@qtest.com">help@qtest.com</a>
+         </address>
+      </section>
+
+      <section class="translate">
+        <h1 class="translate-title">select what you want to translate</h1>
+        <div class="translate-radio">
+          <input id="website-translate" name="translate" type="radio" value="website">
+          <label for="website-translate">website</label>
+
+          <input id="documents" name="translate" type="radio" value="documents" checked="checked">
+          <label for="documents">documents</label>
+
+          <input id="account" name="translate" type="radio" value="account">
+          <label for="account">social account</label>
+        </div>
+      </section>
+
+      <div class="counter-wrapper">
+
+        <section class="upload">
+          <h1 class="upload-title">Upload your documents
+            <small>(Doc, Docx, PDF, Markdown)</small></h1>
+          <div class="upload-wrapper">
+            <button type="button" class="upload-button">upload a new file</button>
+            <!-- <input type="file" id="file" name="file" />-->
+            <table class="upload-table">
+              <thead>
+                <tr>
+                  <th>file name</th>
+                  <th>file size</th>
+                  <th>number of words</th>
+                  <th>remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>text</th>
+                  <th>78</th>
+                  <th>842</th>
+                  <th>icon</th>
+                </tr>
+                <tr>
+                  <th>text</th>
+                  <th>78</th>
+                  <th>842</th>
+                  <th>icon</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="choose">
+          <h1 class="choose-title">Choose your languages pairings</h1>
+          <div class="choose-wrapper">
+            <button type="button" class="btn">English</button>
+            <button type="button" class="btn">Arabic</button>
+            <button type="button" class="btn">Kurdish</button>
+            <button type="button" class="btn">add</button>
+          </div>
+        </section>
+
+        <section class="tone">
+          <h1 class="tone-title">Select your desired tone</h1>
+          <div class="tone-wrapper">
+
+            <input id="casual" name="desired-tone" type="radio" value="casual">
+            <label for="casual">casual</label>
+
+            <input id="pro" name="desired-tone" type="radio" value="pro" checked="checked">
+            <label for="pro">pro</label>
+
+            <input id="normal" name="desired-tone" type="radio" value="normal">
+            <label for="normal">normal</label>
+
+          </div>
+        </section>
+
+        <section class="range">
+          <h1 class="range-title">Tell us how urgent this job is</h1>
+          <div class="range-wrapper">
+            <input type="range" min="1" max="3">
+          </div>
+        </section>
+
+        <section class="payment">
+          <h1 class="payment-title">Sign up and choose a payment method</h1>
+          <div class="payment-wrapper">
+
+            <label for="fullname">full name</label>
+            <input type="text" id="fullname" name="" value="" style="padding:5px;">
+
+            <label for="email">email adress</label>
+            <input type="email" id="email" name="" value="" style="padding:5px;">
+
+            <label for="password">choose a password</label>
+            <input type="password" id="password" name="" value="" style="padding:5px;">
+
+            <div style="display: flex;align-items: center;justify-content: flex-start;">
+              <input id="card" name="pay-method" type="radio" value="card">
+              <label for="card">card</label>
+
+
+              <input id="paypal" name="pay-method" type="radio" value="paypal" checked="checked">
+              <label for="paypal">paypal</label>
+
+              <input id="amazon" name="pay-method" type="radio" value="amazon">
+              <label for="amazon">amazon</label>
+
+            </div>
+
+            <label for="cardnum">card number</label>
+            <input type="text" id="cardnum" name="cardnum" value="" style="padding:5px;">
+
+            <label for="carddate">expiry date</label>
+            <input type="date" id="carddate" name="" value="" style="padding:5px;">
+
+            <label for="cardcode">code</label>
+            <input type="number" id="cardcode" name="" value="" style="padding:5px;">
+
+          </div>
+        </section>
+      </div>
+
+      <button type="button">plase order</button>
+      <button type="button">print a quote</button>
+
+    </form>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+
+</html>

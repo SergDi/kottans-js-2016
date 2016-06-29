@@ -1,0 +1,236 @@
+@background-color:#ECEEF4;
+@color: #6E768F;
+@border: 1px solid;
+@border-color: #bbc2d8;
+@border-radius: 3px;
+@border-checked: 4px solid #6494da;
+
+/***/
+body{
+  margin: 0;
+}
+
+a, h1{  
+  all: unset;
+}
+/***/
+
+html{    
+ background-color:@background-color;
+ font-family: 'Open Sans', sans-serif;
+ color: @color;
+}
+
+body{
+  max-width: 1316px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+main{
+  background-color:#FFF;
+  border: @border;
+  border-color: @border-color;
+  border-radius: @border-radius;
+}
+
+/** mixins */
+.buttons{
+  color: @color;
+  border-radius: @border-radius;
+  border: @border;
+  border-color: @border-color;
+  background-color: @background-color;
+  padding: 17px 40px;
+  text-transform:uppercase;
+  display: block;
+}
+/** mixins */
+
+.nav-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.go-back, .sing-in, .btn{
+    .buttons()
+}
+
+.translate{
+
+    .translate-title{    
+        display: block;
+        text-align: center;
+        text-transform:uppercase;
+    }
+    
+    .translate-radio{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.counter-wrapper{
+   counter-reset: heading;
+   padding: 38px;
+
+   
+   h1:before {
+    counter-increment: heading; 
+    content: counter(heading); 
+    margin: 30px;
+    padding: 11px;
+    padding-right: 18px;
+    padding-left: 18px;
+    border-radius: 22px;
+    box-shadow: 0 0 0 1px #858CA1;
+    font-size: 0.67em;
+   }
+   
+   .upload{
+       
+       .upload-title{
+             font-size: 1.5em;  
+       }
+       .upload-wrapper{
+           padding-left: 106px;
+           padding-top: 48px;
+           padding-bottom: 48px;
+       
+            .upload-button{
+                .buttons
+            }
+            
+            .upload-table{
+                margin-top: 40px;
+                
+                padding: 20px 40px;
+                border: 1px solid @border-color;
+                border-radius: @border-radius;
+                
+                thead{
+                    tr{
+                      text-transform:uppercase;   
+                    }
+                }
+            }
+       }
+   }
+   
+      .choose{
+       
+       .choose-title{
+             font-size: 1.5em;  
+       }
+       .choose-wrapper{
+           padding-left: 106px;
+           padding-top: 48px;
+           padding-bottom: 48px;
+
+       }
+   }
+   
+         .tone{
+       
+       .tone-title{
+             font-size: 1.5em;  
+       }
+       .tone-wrapper{
+           padding-left: 106px;
+           padding-top: 48px;
+           padding-bottom: 48px;
+
+       }
+   }
+   
+       .range{
+       
+       .range-title{
+             font-size: 1.5em;  
+       }
+       .range-wrapper{
+           padding-left: 106px;
+           padding-top: 48px;
+           padding-bottom: 48px;
+
+       }
+   }
+   
+          .payment{
+       
+       .payment-title{
+             font-size: 1.5em;  
+       }
+       .payment-wrapper{
+           padding-left: 106px;
+           padding-top: 48px;
+           padding-bottom: 48px;
+
+       }
+   }
+}
+
+input[type="radio"]{
+    display: none;
+    
+  + label{
+      cursor: pointer;
+      margin: 10px;
+      padding: 20px 40px;
+      border: 1px solid @border-color;
+      border-radius: @border-radius;
+      background: @background-color;
+
+
+     
+  }
+  &:checked + label{
+      border: @border-checked;
+      border-radius: @border-radius;
+  }
+}
+
+
+input[type=range]{
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 300px;
+    height: 8px;
+    background: #ddd;
+    border: none;
+    border-radius: @border-radius;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: goldenrod;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ebecf3;
+}
+
+/**  
+.inputs{   
+    padding: 8px;
+    border: @border;
+    border-color: @border-color;
+    border-radius: @border-radius;
+}
+*/

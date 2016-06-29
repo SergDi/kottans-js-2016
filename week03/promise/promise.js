@@ -89,7 +89,7 @@ class MyPromise extends Promise {
   }
 
   reduce(fn, initialValue) {
-    return this.constructor.reduce(this, fn, initialValue, null);
+    return this.constructor.reduce(this, fn, initialValue);
   }
 
   static reduce(input, reducer, initialValue) {
