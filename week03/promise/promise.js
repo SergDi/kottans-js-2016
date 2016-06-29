@@ -88,6 +88,10 @@ class MyPromise extends Promise {
     });
   }
 
+  reduce(fn, initialValue) {
+    return this.constructor.reduce(this, fn, initialValue, null);
+  }
+
   static reduce(input, reducer, initialValue) {
 
     return new this((resolve, reject) => {
@@ -98,6 +102,9 @@ class MyPromise extends Promise {
           reject(new TypeError('must be iterable'));
         }
 
+        if(initialValue == undefined)
+        initialValue = iterable.pop();
+
         let accumulator = this.resolve(initialValue);
         let pending = 0;
 
@@ -106,7 +113,7 @@ class MyPromise extends Promise {
           this.promisify(i).then(currentValue => {
             pending++
 
-            accumulator = accumulator.then(previousValue => {
+            accumulator = accumulator.then(previousValue => {           
               return this.resolve(reducer(previousValue, currentValue, pending));
             }, reject);
 
